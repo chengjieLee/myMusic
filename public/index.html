@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>Music</title>
+    <script>
+      (function (window, document) {
+      'use strict';
+      var hotcss = {};
+      hotcss.mresize = function () {
+        var innerWidth = document.documentElement.getBoundingClientRect().width || window.innerWidth;
+        if (!innerWidth) {
+          return false;
+        }
+        if (innerWidth <= 500) {
+          document.documentElement.style.fontSize = (innerWidth * 20 / 375) + 'px';
+        }else{
+          document.documentElement.style.fontSize = 16+'px'
+        }
+      };
+      hotcss.mresize();
+      window.addEventListener('resize', function () {
+        clearTimeout(hotcss.tid);
+        if (innerWidth <= 500) {
+          hotcss.tid = setTimeout(hotcss.mresize, 33);
+        }
+      }, false);
+      window.addEventListener('load', hotcss.mresize, false);
+        setTimeout(function () {
+          hotcss.mresize();
+      }, 333) //页面加载后  定期刷新防止其他操作改变宽度
+      window.hotcss = hotcss;
+    })(window, document)
+
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but music doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
