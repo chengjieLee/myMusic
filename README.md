@@ -1,4 +1,4 @@
-# idomusic
+# music start
 
 ## Project setup
 ```
